@@ -13,6 +13,7 @@ public class AutoIntensity : MonoBehaviour {
     public float minAmbient = 0f;
     public float minAmbientPoint = -0.2f;
 
+    public bool nighttime = false;
 
     public Gradient nightDayFogColor;
     public AnimationCurve fogDensityCurve;
@@ -67,12 +68,18 @@ public class AutoIntensity : MonoBehaviour {
         skyMat.SetFloat("_AtmosphereThickness", i);
 
         if (dot > 0)
+        { 
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
+        nighttime = false;
+        }
         else
+        {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
+            nighttime = true;
+        }
 
-        //if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
-        //if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
+        if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
+        if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
        
 
     }

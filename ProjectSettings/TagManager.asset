@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - ARVORE
+  - Fruta2
+  - Fruta1
+  - Enemy
+  - PEDRA
+  - Boom
+  - Fruta3
+  - enemy
+  - bush
   layers:
   - Default
   - TransparentFX
