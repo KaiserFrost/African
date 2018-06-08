@@ -13,20 +13,7 @@ public class OnTriggerLoadLevel : MonoBehaviour {
         guiObj.SetActive(false);
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            guiObj.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene("CasaPrincipal");
-
-            }
-
-        }
-
-    }
+   
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -34,7 +21,7 @@ public class OnTriggerLoadLevel : MonoBehaviour {
             guiObj.SetActive(true);
             if ( Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("CasaPrincipal");
+                SceneManager.LoadScene(lvlToLoad);
                 
             }
 
