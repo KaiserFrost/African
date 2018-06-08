@@ -95,6 +95,33 @@ public class PController : MonoBehaviour {
 
     }
 
+    //private void SetItemActive(InventoryItemBase item, bool active)
+    //{
+    //    GameObject currentItem = (item as MonoBehaviour).gameObject;
+    //    currentItem.SetActive(active);
+    //    currentItem.transform.parent = active ? Hand.transform : null;
+    //}
+
+    //private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    //{
+    //    if (e.Item.ItemType != EItemType.Consumable)
+    //    {
+    //        // If the player carries an item, un-use it (remove from player's hand)
+    //        if (mCurrentItem != null)
+    //        {
+    //            SetItemActive(mCurrentItem, false);
+    //        }
+
+    //        InventoryItemBase item = e.Item;
+
+    //        // Use item (put it to hand of the player)
+    //        SetItemActive(item, true);
+
+    //        mCurrentItem = e.Item;
+    //    }
+
+    //}
+
 
     private void DropCurrentItem()
     {
@@ -237,8 +264,9 @@ public class PController : MonoBehaviour {
     }
 
     private InteractableItemBase mInteractItem = null;
-
-     /*private void OnTriggerEnter(Collider other)
+//DESCOMENTADO
+/*
+     private void OnTriggerEnter(Collider other)
       {
             InteractableItemBase item = other.gameObject.GetComponent<InteractableItemBase>();
               if (item != null)
@@ -248,9 +276,9 @@ public class PController : MonoBehaviour {
                   Hud.OpenMessagePanel(mInteractItem);
               }
 
-      }*/
+      }
 
-   /* private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         InteractableItemBase item = other.GetComponent<InteractableItemBase>();
         if (item != null)
@@ -258,7 +286,8 @@ public class PController : MonoBehaviour {
             Hud.CloseMessagePanel();
             mInteractItem = null;
         }
-    }*/
+    }
+    */
 
     void UpdateParametrosAnimator(){
             animator.SetBool("z_noChao", noChao);
