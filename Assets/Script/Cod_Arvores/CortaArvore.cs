@@ -45,7 +45,8 @@ public class CortaArvore : MonoBehaviour {
             }
             for (int x = 0; x < quantidade; x++)
             {
-                Instantiate(Madeiras, localMadeiras[x].transform.position, transform.rotation);
+                Instantiate(Madeiras, localMadeiras[x].transform.position, transform.rotation).gameObject.tag = ("item");
+                
             }
             Destroy(gameObject);
         }

@@ -78,8 +78,8 @@ public class AutoIntensity : MonoBehaviour {
             nighttime = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
-        if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
+       /* if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
+        if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;*/
        
 
     }

@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Stick
   Image: {fileID: 21300000, guid: 504e9265a25271d45bcf36de54962460, type: 3}
-  InteractText: Press F to pickup the gem
+  InteractText: Press F to pick the gem
   ItemType: 0
   PickPosition: {x: -0.00014, y: 0.00091, z: 0.00124}
   PickRotation: {x: -193.947, y: -28.52802, z: -133.821}

@@ -34,22 +34,24 @@ public class AiAi : MonoBehaviour
     private bool attack1 = false;
     // Use this for initialization
 
-    void OnEnable()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
         timer = wanderTimer;
     }
     void Start()
     {
 
         characterController = gameObject.GetComponent<CharacterController>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        
         enemy = GameObject.FindGameObjectWithTag("enemy");
         bush = GameObject.FindGameObjectWithTag("bush");
         tree = GameObject.FindGameObjectsWithTag("tree");
         points = new Transform[4];
         points[0] = player.transform;
-        animator = GetComponent<Animator>();
+       
         waypoint = new List<Transform>();
         
     }
@@ -64,6 +66,8 @@ public class AiAi : MonoBehaviour
 
         if (!friendly)
         {
+
+          
             animator.SetBool("Hit2", attack1);
 
             
@@ -100,7 +104,7 @@ public class AiAi : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveToward), rotationSpeed * Time.deltaTime);
                 
                 transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-
+                
             }
             else
             {

@@ -91,6 +91,7 @@ public class PController : MonoBehaviour {
             SetItemActive(item, true);
 
             mCurrentItem = e.Item;
+            print(mCurrentItem);
         }
 
     }
@@ -175,7 +176,9 @@ public class PController : MonoBehaviour {
         Defesa();
         Esquivar();
         Lancar();
-
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<UnderWater>().isUnderWater == true)
+        { 
+        }
         if (Input.GetAxis("Vertical") > 0)
         {
             animator.SetBool("isWalking", true);
@@ -212,7 +215,7 @@ public class PController : MonoBehaviour {
             InteractableItemBase item = hit.transform.gameObject.GetComponent<InteractableItemBase>();
 
             Debug.Log("ray hit (name): " + hit.collider.gameObject.name);
-            if (hit.collider.gameObject.tag == "Item")
+            if (hit.collider.gameObject.tag == "Item" || hit.collider.gameObject.tag =="fruta1" || hit.collider.gameObject.tag == "fruta2")
             {
                 if (item != null)
                 {
