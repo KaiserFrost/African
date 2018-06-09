@@ -99,7 +99,7 @@ MonoBehaviour:
   Name: Fruta3
   Image: {fileID: 21300000, guid: 3166dd30651d3b54faf8637b83011bfb, type: 3}
   InteractText: Press F to pickup the item
-  ItemType: 1
+  ItemType: 0
   PickPosition: {x: 0, y: 0, z: 0}
   PickRotation: {x: 0, y: 0, z: 0}
   DropRotation: {x: 0, y: 0, z: 0}
