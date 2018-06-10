@@ -26,6 +26,12 @@ public class WolfAI : MonoBehaviour {
 
     public Collider atkCollider;
 
+    public float VidaCheia = 100;
+    public float VidaAtual;
+
+
+    public GameObject Objeto;
+    public GameObject[] Local;
 
     // Use this for initialization
     void Start () {
@@ -69,7 +75,7 @@ public class WolfAI : MonoBehaviour {
 
 
             Debug.Log("ATENÇÃO!!!");
-            if (Vector3.Distance(transform.position, jogador.transform.position) < 20f)
+            if (Vector3.Distance(transform.position, jogador.transform.position) < 15f)
             {
 
                 isAlert = false;
@@ -85,7 +91,7 @@ public class WolfAI : MonoBehaviour {
 
 
                 Debug.Log("ANDAR");
-                if (Vector3.Distance(transform.position, jogador.transform.position) < 15f)
+                if (Vector3.Distance(transform.position, jogador.transform.position) < 10f)
                 {
                     isAlert = false;
                     clip = animatorAnimal.GetCurrentAnimatorClipInfo(0);
@@ -100,7 +106,7 @@ public class WolfAI : MonoBehaviour {
                     Debug.Log("CORRER");
                 }
 
-                if (Vector3.Distance(transform.position, jogador.transform.position) < 2f)
+                if (Vector3.Distance(transform.position, jogador.transform.position) < 3f)
                 {
 
                     isAlert = false;
@@ -111,7 +117,7 @@ public class WolfAI : MonoBehaviour {
                         isRunning = false;
                         isAttack = true;
                     }
-                    navMesh.destination = jogador.transform.position;
+                    //navMesh.destination = jogador.transform.position;
                     Debug.Log("ATACAR!!!");
                     Attack();
                 }
@@ -120,6 +126,28 @@ public class WolfAI : MonoBehaviour {
 
         }
 
+    }
+
+
+    void SistemaDeVida()
+    {
+        if (VidaAtual >= VidaCheia)
+        {
+            VidaAtual = VidaCheia;
+        }
+        else if (VidaAtual <= 0)
+        {
+            VidaAtual = 0;
+     
+            Dropar();
+            Destroy(gameObject);
+        }
+    }
+
+    void Dropar()
+    {
+        for (int i = 0; i < 3; i++)
+            Instantiate(Objeto, Local[i].transform.position, Local[i].transform.rotation);
     }
 
 
@@ -134,6 +162,16 @@ public class WolfAI : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (GameObject.FindWithTag("Boom"))
+        {
+            this.GetComponent<WolfAI>().VidaAtual -= atkBase;
+        }
+        //GetComponent<AudioSource>().PlayOneShot(damageSound);
+
+
+    }
 
 
     //IEnumerator AttackTime()

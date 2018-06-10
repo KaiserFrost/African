@@ -12,26 +12,14 @@ public class AguaAtributo : MonoBehaviour {
     }
     public TIPO TipoDoItem;
     [Range(1, 500)]
-    public float QuantoRepor = 20;
+    public float QuantoRepor = 50;
     private GameObject Jogador;
     public GameObject Aua;
-
-    public AudioClip drinkSound;
-    //public AudioClip eatSound;
-    
-
-    public AudioSource soundSource;
-
-   
-
-    private Vector3 NivelAua = new Vector3(0.0f,0.001f,0.0f);
+    private Vector3 NivelAua = new Vector3(0.0f, 0.001f, 0.0f);
 
     void Start()
     {
         Jogador = GameObject.FindWithTag("Player");
-        soundSource.clip = drinkSound;
-       // soundSource.clip = eatSound;
-        
     }
 
     void OnTriggerStay(Collider other)
@@ -41,19 +29,15 @@ public class AguaAtributo : MonoBehaviour {
             switch (TipoDoItem)
             {
                 case TIPO.Comida:
-                    
                     Jogador.GetComponent<SistemaStatus>().FomeAtual += QuantoRepor;
-                    
+                   
                     break;
                 case TIPO.Bebida:
-                    soundSource.Play();
                     Jogador.GetComponent<SistemaStatus>().SedeAtual += QuantoRepor;
                     Aua.transform.position -= NivelAua;
 
-
                     break;
                 case TIPO.Vida:
-                    
                     Jogador.GetComponent<SistemaStatus>().VidaAtual += QuantoRepor;
                    
                     break;
@@ -62,3 +46,4 @@ public class AguaAtributo : MonoBehaviour {
         }
     }
 }
+

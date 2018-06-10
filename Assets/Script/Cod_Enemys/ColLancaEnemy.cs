@@ -6,11 +6,10 @@ public class ColLancaEnemy : MonoBehaviour {
 
     private GameObject enemy;
     public int atkBase = 30;
-
+    
     void OnTriggerEnter(Collider col)
-    {
-        
-        enemy.GetComponent<EnemyAI>().VidaAtual -= atkBase;
+    {       
+        this.GetComponent<EnemyAI>().VidaAtual -= atkBase;
     }
 
     void Start()

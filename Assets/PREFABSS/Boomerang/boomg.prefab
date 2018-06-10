@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4814313738935050}
   - component: {fileID: 114595604652062832}
   - component: {fileID: 114574209260843598}
+  - component: {fileID: 65850313775275884}
   m_Layer: 0
   m_Name: boomg
   m_TagString: Boom
@@ -86,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 197cf8c5d30e8b14baa9b9e67bd1c09a, type: 3}
+  - {fileID: 2100000, guid: 2825f994b7e3b8b43a9eb97322dfce5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,6 +114,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827917360899924}
   m_Mesh: {fileID: 4300000, guid: 197cf8c5d30e8b14baa9b9e67bd1c09a, type: 3}
+--- !u!65 &65850313775275884
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207639627472910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114574209260843598
 MonoBehaviour:
   m_ObjectHideFlags: 1

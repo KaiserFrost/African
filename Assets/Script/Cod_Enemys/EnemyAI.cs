@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour {
 
     private GameObject jogador;
     private GameObject inimigo;
+    public GameObject boomerang1;
+    public GameObject boomerang2;
     private NavMeshAgent navMesh;
 
     public float VidaCheia = 100;
@@ -22,7 +24,7 @@ public class EnemyAI : MonoBehaviour {
     private bool isAttack;
     
 
-    public int atkBase = 1;//provisorio
+    public int atkBase = 30;//provisorio
     private Vector3 speed;
 
     //public BoxCollider atkCollider;
@@ -38,6 +40,8 @@ public class EnemyAI : MonoBehaviour {
         VidaAtual = VidaCheia;
         jogador = GameObject.FindWithTag("Player");
         inimigo = GameObject.FindWithTag("Enemy");
+        boomerang1 = GameObject.FindWithTag("Boom");
+        boomerang2 = GameObject.FindWithTag("Boom");
         navMesh = GetComponent<NavMeshAgent>();
 
         //atkCollider = GetComponent<BoxCollider>();
@@ -185,6 +189,22 @@ public class EnemyAI : MonoBehaviour {
     {
         for(int i=0; i < 3; i++)
         Instantiate(Objeto,Local[i].transform.position,Local[i].transform.rotation);
+    }
+
+    void TakeDamage()
+    {
+        
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (GameObject.FindWithTag("Boom"))
+        {
+            this.GetComponent<EnemyAI>().VidaAtual -= atkBase;
+        }
+        //GetComponent<AudioSource>().PlayOneShot(damageSound);
+
+
     }
     //IEnumerator AttackTime()
     //{

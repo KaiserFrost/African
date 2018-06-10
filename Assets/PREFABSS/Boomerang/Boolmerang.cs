@@ -12,7 +12,7 @@ public class Boolmerang : MonoBehaviour {
     Transform itemToRotate;
 
     Vector3 posFrentePlayer;
-
+    
 
     // Use this for initialization
     void Start()
@@ -24,7 +24,12 @@ public class Boolmerang : MonoBehaviour {
         Boomerang = GameObject.FindGameObjectWithTag("Boom");
 
         Boomerang.GetComponent<MeshRenderer>().enabled = false; 
-        itemToRotate = gameObject.transform.GetChild(0);       
+        itemToRotate = gameObject.transform.GetChild(0);
+
+
+        Ray ray = Camera.main.ScreenPointToRay(Camera.main.transform.position);
+        RaycastHit hit;
+
 
         //Se for preciso controlar a altura ou até mesmo a posiçao em si, mas acho q ta bom assim
         posFrentePlayer = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z) + player.transform.forward * 15f;
@@ -48,11 +53,15 @@ public class Boolmerang : MonoBehaviour {
          // haver se ele manda apenas um...
             if (go)
             {
-                transform.position = Vector3.MoveTowards(transform.position, posFrentePlayer, Time.deltaTime * 40); //muda a poosiçao pa frente do player           
-            }
+                //transform.position = Vector3.MoveTowards(transform.position, posFrentePlayer, Time.deltaTime * 40); //muda a poosiçao pa frente do player           
+
+            transform.position = transform.position + Camera.main.transform.forward * 1.5f;
+
+             }
 
             if (!go)
             {
+                
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z), Time.deltaTime * 40); //Volta po dono
             }
 

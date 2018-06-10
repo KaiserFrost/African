@@ -138,4 +138,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9e47de2450b89418ba2a29e80e862e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruta: {fileID: 1528656106490444, guid: b847aaa0b9b3d9c4a8927a4f3e03926b, type: 2}
+  fruta: {fileID: 1943834724780536, guid: 80476794c7d9d8f4e904283f37941f5d, type: 2}
